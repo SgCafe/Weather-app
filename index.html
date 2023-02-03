@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;700&display=swap"
+            rel="stylesheet">
+        <script src="https://kit.fontawesome.com/46f56602b7.js"
+            crossorigin="anonymous"></script>
+        <title>Weather App</title>
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="box">
+                <h1>Search your favorite city</h1>
+                <div class="input-search">
+                    <input type="text" name="text" id="text"
+                        placeholder="Search your city!">
+                    <button><i style="" class="fa-solid
+                            fa-magnifying-glass fa-2xl"></i></button>
+                </div>
+
+                <div id="weather-app">
+                    <div id="temp">
+                        <p>
+                            <span id="min-temp">16°</span>
+                            <span id="normal-temp">19°</span>
+                            <span id="max-temp">22°</span>
+                        </p>
+                    </div>
+                    <div id="description">
+                        <p>Clouds</p>
+                        <i> <img
+                                src="http://openweathermap.org/img/wn/03n@2x.png"></i>
+                    </div>
+                    <div id="humidity">
+                        <p><span>45%</span></p>
+                    </div>
+                    <div id="wind">
+                        <p><span>7.2km/h</span></p>
+                    </div>
+                </div>
+
+                <div id="city">
+                    <h3><span>SAN FRANCISCO</span></h3>
+                </div>
+
+                <div class="date">
+                    <input type="date" name="" id="date">
+                </div>
+            </div>
+
+        </div>
+
+
+        <script src="./js/script.js"></script>
+    </body>
+</html>
