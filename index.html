@@ -18,32 +18,30 @@
 
         <div class="container">
             <div class="box">
-                <h1>Search your favorite city</h1>
+                <h1>Descubra o clima!</h1>
                 <div class="input-search">
-                    <input type="text" name="text" id="text"
-                        placeholder="Search your city!">
-                    <button><i style="" class="fa-solid
+                    <input type="text" name="text" id="inputText"
+                        placeholder="Procure o da sua cidade favorita!">
+                    <button id="searchBtn"><i class="fa-solid
                             fa-magnifying-glass fa-2xl"></i></button>
                 </div>
 
                 <div id="weather-app">
                     <div id="temp">
-                        <p>
-                            <span id="min-temp">16°</span>
-                            <span id="normal-temp">19°</span>
-                            <span id="max-temp">22°</span>
-                        </p>
+                        <p> <span id="min-temp"></span>&deg;</p>
+                        <p> <span id="normal-temp"></span>&deg;</p>
+                        <p> <span id="max-temp"></span>&deg;</p>
                     </div>
                     <div id="description">
-                        <p>Clouds</p>
-                        <i> <img
-                                src="http://openweathermap.org/img/wn/03n@2x.png"></i>
+                        <p><span></span></p>
+                        <i><img id="icon-description"
+                                src=""></i>
                     </div>
                     <div class="features">
                         <div id="humidity">
                             <p>
                                 <i class="fa-solid fa-droplet fa-2xl"></i>
-                                <span>45%</span></p>
+                                <span>%</span></p>
                         </div>
                         <div id="wind">
                             <p>
@@ -53,12 +51,14 @@
                     </div>
 
                     <div class="box2">
-                        <div id="city">
-                            <h3><span>SAN FRANCISCO</span></h3>
+                        <div>
+                            <h3 id="city"><span></span></h3>
                         </div>
 
                         <div class="date">
-                            <input type="date" name="" id="date">
+                            <p id="dia">Monday</p>
+                            <p id="mes">Sep 12</p>
+                            <p id="hora">08:16</p>
                         </div>
 
                     </div>

@@ -58,18 +58,23 @@
 }
 
 /* Weather App */
-#weather-app #temp p {
+#weather-app #temp {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+}
+#weather-app #temp p {
+  font-size: 30px;
+  margin-right: 20px;
 }
 #weather-app #temp p #min-temp {
   font-size: 30px;
   font-weight: 500;
 }
 #weather-app #temp p #normal-temp {
-  font-size: 92px;
+  display: inline-block;
+  vertical-align: -30%;
+  font-size: 80px;
   font-weight: 300;
 }
 #weather-app #temp p #max-temp {
@@ -80,6 +85,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 40px;
+  text-transform: capitalize;
 }
 #weather-app #description p {
   font-size: 24px;
@@ -93,21 +99,27 @@
   gap: 30px;
 }
 #weather-app .features span {
-  font-size: 32px;
+  font-size: 28px;
 }
 #weather-app .box2 {
+  text-align: center;
   width: 100%;
   height: 120px;
-  padding: 30px;
-  z-index: 999;
+  padding: 15px;
   background: rgba(255, 255, 255, 0.56);
   border-radius: 0px 0px 51px 51px;
 }
 #weather-app .box2 #city {
   padding: 10px 0;
-}
-#weather-app .box2 #city h3 {
   font-weight: 500;
-  font-size: 24px;
+  font-size: 28px;
   letter-spacing: 3px;
+}
+#weather-app .box2 .date {
+  font-size: 18px;
+  color: #696969;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }/*# sourceMappingURL=style.css.map */
