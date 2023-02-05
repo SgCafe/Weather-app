@@ -8,7 +8,7 @@ const tempMinElement = document.querySelector("#min-temp");
 const tempNormalElement = document.querySelector("#normal-temp");
 const tempMaxElement = document.querySelector("#max-temp");
 const descriptionElement = document.querySelector("#description span");
-const imgDescriptionElement = document.querySelector("#description i");
+const imgDescriptionElement = document.querySelector("#icon-description");
 const humidityElement = document.querySelector("#humidity span");
 const windElement = document.querySelector("#wind span");
 const cityElement = document.querySelector("#city span");
@@ -28,7 +28,21 @@ const getWeatherData = async (cityInput) => {
 };
 
 //Função para mostrar dados da API
-const showWeatherData = async (cityInput) => {};
+const showWeatherData = async (cityInput) => {
+  const data = await getWeatherData(cityInput);
+
+  cityElement.innerText = data.name;
+  tempMinElement.innerText = parseInt(data.main.temp_min);
+  tempNormalElement.innerText = parseInt(data.main.temp);
+  tempMaxElement.innerText = parseInt(data.main.temp_max);
+  descriptionElement.innerText = data.weather[0].description;
+  imgDescriptionElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+  );
+  humidityElement.innerText = data.main.humidity + "%";
+  windElement.innerText = data.wind.speed + " km/h";
+};
 
 //Events
 Btnsearch.addEventListener("click", (event) => {
