@@ -45,9 +45,16 @@ const showWeatherData = async (cityInput) => {
 };
 
 //Events
-Btnsearch.addEventListener("click", (event) => {
-  event.preventDefault;
+Btnsearch.addEventListener("click", (e) => {
+  e.preventDefault;
 
   const cityInput = inputTxt.value;
   showWeatherData(cityInput);
+});
+
+inputTxt.addEventListener("keyup", (e) => {
+  if (e.key === "Enter") {
+    const cityInput = e.target.value;
+    showWeatherData(cityInput);
+  }
 });
