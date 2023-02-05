@@ -14,6 +14,11 @@ const windElement = document.querySelector("#wind span");
 const cityElement = document.querySelector("#city span");
 const dateElement = document.querySelector("#date");
 
+const weatherContainer = document.querySelector("#weather-app");
+
+//Date
+// const date = new Date()
+
 //functions
 
 //Função para pegar os dados da API
@@ -23,7 +28,6 @@ const getWeatherData = async (cityInput) => {
   );
 
   const data = await response.json();
-  console.log(data);
   return data;
 };
 
@@ -42,6 +46,8 @@ const showWeatherData = async (cityInput) => {
   );
   humidityElement.innerText = data.main.humidity + "%";
   windElement.innerText = data.wind.speed + " km/h";
+
+  weatherContainer.classList.remove("hide");
 };
 
 //Events
