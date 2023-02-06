@@ -17,6 +17,8 @@ const dayElement = document.querySelector("#dia");
 
 const weatherContainer = document.querySelector("#weather-app");
 
+const changeImageBg = document.querySelector("#changeimg");
+
 //Date
 const dateTime = () => {
   const dateElement = new Date();
@@ -35,8 +37,7 @@ const dateTime = () => {
   return dayAndMonth + getTime();
 };
 
-//functions
-
+//functions API
 //Função para pegar os dados da API
 const getWeatherData = async (cityInput) => {
   const response = await fetch(
@@ -44,6 +45,7 @@ const getWeatherData = async (cityInput) => {
   );
 
   const data = await response.json();
+  console.log(data);
   return data;
 };
 
@@ -65,6 +67,50 @@ const showWeatherData = async (cityInput) => {
   dayElement.innerText = dateTime();
 
   weatherContainer.classList.remove("hide");
+
+  const imagesToBg = {
+    nublado: "../assets/sky_with_clouds.png",
+    ceuLimpo: "../assets/clear_skye.png",
+    ceuNuvens: "../assets/sky_with_clouds.png",
+    ceuPrevChuva: "../assets/sky_with_loaded_clouds.png",
+    trovoada: "../assets/storm_morning.png",
+    ceuManha: "../assets/sun_morgning.png",
+    chuvaModerada: "",
+  };
+
+  let DescriptionClima = data.weather[0].description;
+
+  switch (DescriptionClima) {
+    case "nublado":
+      document.body.style.backgroundImage = `url(${imagesToBg.nublado})`;
+      break;
+    case "céu limpo":
+      document.body.style.backgroundImage = `url${imagesToBg.ceuLimpo}`;
+      break;
+    case "céu nuvens":
+      document.body.style.backgroundImage = `url${imagesToBg.ceuNuvens}`;
+      break;
+    case "ceuPrevChuva":
+      document.body.style.backgroundImage = `url${imagesToBg.ceuPrevChuva}`;
+      break;
+    case "trovoada":
+      document.body.style.backgroundImage = `url${imagesToBg.trovoada}`;
+      break;
+    case "ceuManha":
+      document.body.style.backgroundImage = `url${imagesToBg.ceuManha}`;
+      break;
+    case "chuva moderada":
+
+    default:
+      console.log("teste");
+  }
+  // let temperatura = parseInt(data.main.temp_min);
+  // if (temperatura > 25) {
+  //   console.log("calor");
+  // } else {
+  //   console.log("clima ta bao");
+  // }
+  // document.body.style.backgroundImage = `${imagesToBg.data.weather[0].description}`;
 };
 
 //Events
