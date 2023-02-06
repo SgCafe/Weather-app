@@ -12,12 +12,28 @@ const imgDescriptionElement = document.querySelector("#icon-description");
 const humidityElement = document.querySelector("#humidity span");
 const windElement = document.querySelector("#wind span");
 const cityElement = document.querySelector("#city span");
-const dateElement = document.querySelector("#date");
+const dateElement = document.querySelector(".date p");
+const dayElement = document.querySelector("#dia");
 
 const weatherContainer = document.querySelector("#weather-app");
 
 //Date
-// const date = new Date()
+const dateTime = () => {
+  const dateElement = new Date();
+  const dayAndMonth = dateElement.toLocaleDateString("pt-BR", {
+    day: "numeric",
+    month: "long",
+  });
+
+  const getTime = () => {
+    const hourElement = dateElement.getHours();
+    const minuteElement = dateElement.getMinutes();
+
+    return `  |  ${hourElement}h${minuteElement}`;
+  };
+
+  return dayAndMonth + getTime();
+};
 
 //functions
 
@@ -46,13 +62,14 @@ const showWeatherData = async (cityInput) => {
   );
   humidityElement.innerText = data.main.humidity + "%";
   windElement.innerText = data.wind.speed + " km/h";
+  dayElement.innerText = dateTime();
 
   weatherContainer.classList.remove("hide");
 };
 
 //Events
 Btnsearch.addEventListener("click", (e) => {
-  e.preventDefault;
+  e.preventDefault();
 
   const cityInput = inputTxt.value;
   showWeatherData(cityInput);
