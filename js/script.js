@@ -69,37 +69,40 @@ const showWeatherData = async (cityInput) => {
   weatherContainer.classList.remove("hide");
 
   const imagesToBg = {
-    nublado: "../assets/sky_with_clouds.png",
-    ceuLimpo: "../assets/clear_skye.png",
-    ceuNuvens: "../assets/sky_with_clouds.png",
-    ceuPrevChuva: "../assets/sky_with_loaded_clouds.png",
-    trovoada: "../assets/storm_morning.png",
-    ceuManha: "../assets/sun_morgning.png",
-    chuvaModerada: "",
+    cloudSky: "../assets/clouds_sky.png",
+    clearSky: "../assets/clear_sky.png",
+    atmosphereSky: "../assets/atmosphere_sky.png",
+    snowSky: "../assets/snow_sky.png",
+    rainSky: "../assets/rain_sky.png",
+    drizzleSky: "../assets/drizzle_sky.png",
+    stormSky: "../assets/storm_sky.png",
   };
 
-  let DescriptionClima = data.weather[0].description;
+  let DescriptionClima = data.weather[0].main;
 
   switch (DescriptionClima) {
-    case "nublado":
-      document.body.style.backgroundImage = `url(${imagesToBg.nublado})`;
+    case "Clouds":
+      document.body.style.backgroundImage = `url(${imagesToBg.cloudSky})`;
       break;
-    case "céu limpo":
-      document.body.style.backgroundImage = `url${imagesToBg.ceuLimpo}`;
+    case "Clear":
+      console.log("funcionou");
+      document.body.style.backgroundImage = `url(${imagesToBg.clearSky})`;
       break;
-    case "céu nuvens":
-      document.body.style.backgroundImage = `url${imagesToBg.ceuNuvens}`;
+    case "Atmosphere":
+      document.body.style.backgroundImage = `url(${imagesToBg.atmosphereSky})`;
       break;
-    case "ceuPrevChuva":
-      document.body.style.backgroundImage = `url${imagesToBg.ceuPrevChuva}`;
+    case "Snow":
+      document.body.style.backgroundImage = `url(${imagesToBg.snowSky})`;
       break;
-    case "trovoada":
-      document.body.style.backgroundImage = `url${imagesToBg.trovoada}`;
+    case "Rain":
+      document.body.style.backgroundImage = `url(${imagesToBg.rainSky})`;
       break;
-    case "ceuManha":
-      document.body.style.backgroundImage = `url${imagesToBg.ceuManha}`;
+    case "Drizzle":
+      document.body.style.backgroundImage = `url(${imagesToBg.drizzleSky})`;
       break;
-    case "chuva moderada":
+    case "Thunderstorm":
+      document.body.style.backgroundImage = `url(${imagesToBg.stormSky})`;
+      break;
 
     default:
       console.log("teste");
