@@ -28,7 +28,7 @@ const clearInput = () => {
 };
 
 //Alerts
-function btnTeste() {
+function errorMsg() {
   Toastify({
     text: "Cidade não encontrada, procure novamente!",
     duration: 3000,
@@ -83,7 +83,7 @@ const showWeatherData = async (cityInput) => {
   const data = await getWeatherData(cityInput);
 
   if (data.cod === "404") {
-    btnTeste();
+    errorMsg();
   }
 
   cityElement.innerText = data.name;
@@ -147,6 +147,9 @@ Btnsearch.addEventListener("click", (e) => {
   e.preventDefault();
 
   const cityInput = inputTxt.value;
+  if (cityInput === "") {
+    errorMsg();
+  }
   showWeatherData(cityInput);
   clearInput();
 });
@@ -154,6 +157,9 @@ Btnsearch.addEventListener("click", (e) => {
 inputTxt.addEventListener("keyup", (e) => {
   if (e.key === "Enter") {
     const cityInput = e.target.value;
+    if (cityInput === "") {
+      errorMsg();
+    }
     showWeatherData(cityInput);
     clearInput();
   }
