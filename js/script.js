@@ -2,6 +2,7 @@
 const apiKey = "143eb49867f301ac207f8076a21a9935";
 
 const inputTxt = document.querySelector("#inputText");
+const clearInputs = document.querySelectorAll("input");
 const Btnsearch = document.querySelector("#searchBtn");
 
 const tempMinElement = document.querySelector("#min-temp");
@@ -20,6 +21,27 @@ const weatherContainer = document.querySelector("#weather-app");
 const changeImageBg = document.querySelector("#changeimg");
 
 const btnLocation = document.querySelector("#btnGeoLocation");
+
+//Clear Input
+const clearInput = () => {
+  clearInputs.forEach((input) => (input.value = ""));
+};
+
+//Alerts
+function btnTeste() {
+  Toastify({
+    text: "Cidade não encontrada, procure novamente!",
+    duration: 3000,
+    className: "warnning",
+    gravity: "top", // `top` or `bottom`
+    position: "right", // `left`, `center` or `right`
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    style: {
+      background: "linear-gradient(to right, #4b0a0a, #821313)",
+    },
+    onClick: function () {}, // Callback after click
+  }).showToast();
+}
 
 //Function Date and Time
 const dateTime = () => {
@@ -59,6 +81,10 @@ const getWeatherData = async (cityInput) => {
 //Função para mostrar dados da API
 const showWeatherData = async (cityInput) => {
   const data = await getWeatherData(cityInput);
+
+  if (data.cod === "404") {
+    btnTeste();
+  }
 
   cityElement.innerText = data.name;
   tempMinElement.innerText = parseInt(data.main.temp_min);
@@ -122,12 +148,14 @@ Btnsearch.addEventListener("click", (e) => {
 
   const cityInput = inputTxt.value;
   showWeatherData(cityInput);
+  clearInput();
 });
 
 inputTxt.addEventListener("keyup", (e) => {
   if (e.key === "Enter") {
     const cityInput = e.target.value;
     showWeatherData(cityInput);
+    clearInput();
   }
 });
 
