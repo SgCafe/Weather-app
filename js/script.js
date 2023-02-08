@@ -19,10 +19,7 @@ const weatherContainer = document.querySelector("#weather-app");
 
 const changeImageBg = document.querySelector("#changeimg");
 
-//Teste GeoLocation
-
 const btnLocation = document.querySelector("#btnGeoLocation");
-const TxtTeste = document.querySelector("#testeGeo");
 
 //Function Date and Time
 const dateTime = () => {
@@ -50,7 +47,6 @@ const getlocation = async () => {
 };
 
 //functions API
-//Função para pegar os dados da API
 const getWeatherData = async (cityInput) => {
   const response = await fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&units=metric&appid=${apiKey}&lang=pt_br`
@@ -116,6 +112,7 @@ const showWeatherData = async (cityInput) => {
 
     default:
       console.log("teste");
+      break;
   }
 };
 

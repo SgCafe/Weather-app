@@ -24,6 +24,8 @@
                         placeholder="Pesquise o nome da cidade!">
                     <button id="searchBtn"><i class="fa-solid
                             fa-magnifying-glass fa-2xl"></i></button>
+                    <button onclick="getlocation()" id="btnGeoLocation"><i
+                            class="fa-solid fa-map-location-dot fa-2xl"></i></button>
                 </div>
 
                 <div id="weather-app" class="hide">
@@ -53,10 +55,6 @@
                     <div class="box2">
                         <div>
                             <h3 id="city"><span></span></h3>
-
-                            <!-- teste daqui pra baixo -->
-                            <p id="testeGeo"></p>
-                            <button onclick="getlocation()" id="btnGeoLocation">Local</button>
                         </div>
 
                         <div class="date">
