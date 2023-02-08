@@ -19,7 +19,12 @@ const weatherContainer = document.querySelector("#weather-app");
 
 const changeImageBg = document.querySelector("#changeimg");
 
-//Date
+//Teste GeoLocation
+
+const btnLocation = document.querySelector("#btnGeoLocation");
+const TxtTeste = document.querySelector("#testeGeo");
+
+//Function Date and Time
 const dateTime = () => {
   const dateElement = new Date();
   const dayAndMonth = dateElement.toLocaleDateString("pt-BR", {
@@ -37,6 +42,13 @@ const dateTime = () => {
   return dayAndMonth + getTime();
 };
 
+//Function GeoLocation
+const getlocation = async () => {
+  const responseLocation = await fetch("https://ipapi.co/json/");
+  const data = await responseLocation.json();
+  return data.city;
+};
+
 //functions API
 //Função para pegar os dados da API
 const getWeatherData = async (cityInput) => {
@@ -45,7 +57,6 @@ const getWeatherData = async (cityInput) => {
   );
 
   const data = await response.json();
-  console.log(data);
   return data;
 };
 
@@ -85,7 +96,6 @@ const showWeatherData = async (cityInput) => {
       document.body.style.backgroundImage = `url(${imagesToBg.cloudSky})`;
       break;
     case "Clear":
-      console.log("funcionou");
       document.body.style.backgroundImage = `url(${imagesToBg.clearSky})`;
       break;
     case "Atmosphere":
@@ -107,13 +117,6 @@ const showWeatherData = async (cityInput) => {
     default:
       console.log("teste");
   }
-  // let temperatura = parseInt(data.main.temp_min);
-  // if (temperatura > 25) {
-  //   console.log("calor");
-  // } else {
-  //   console.log("clima ta bao");
-  // }
-  // document.body.style.backgroundImage = `${imagesToBg.data.weather[0].description}`;
 };
 
 //Events
@@ -129,4 +132,9 @@ inputTxt.addEventListener("keyup", (e) => {
     const cityInput = e.target.value;
     showWeatherData(cityInput);
   }
+});
+
+btnLocation.addEventListener("click", async () => {
+  const cityInput = await getlocation();
+  showWeatherData(cityInput);
 });
