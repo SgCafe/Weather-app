@@ -102,13 +102,13 @@ const showWeatherData = async (cityInput) => {
   weatherContainer.classList.remove("hide");
 
   const imagesToBg = {
-    cloudSky: "./assets/clouds_sky.png",
-    clearSky: "./assets/clear_sky.png",
-    atmosphereSky: "./assets/atmosphere_sky.png",
-    snowSky: "./assets/snow_sky.png",
-    rainSky: "./assets/rain_sky.png",
-    drizzleSky: "./assets/drizzle_sky.png",
-    stormSky: "./assets/storm_sky.png",
+    cloudSky: "../assets/clouds_sky.png",
+    clearSky: "../assets/clear_sky.png",
+    atmosphereSky: "../assets/atmosphere_sky.png",
+    snowSky: "../assets/snow_sky.png",
+    rainSky: "../assets/rain_sky.png",
+    drizzleSky: "../assets/drizzle_sky.png",
+    stormSky: "../assets/storm_sky.png",
   };
 
   let DescriptionClima = data.weather[0].main;
