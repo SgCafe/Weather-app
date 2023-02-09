@@ -102,7 +102,8 @@ const showWeatherData = async (cityInput) => {
   weatherContainer.classList.remove("hide");
 
   const imagesToBg = {
-    cloudSky: "../assets/clouds_sky.png",
+    cloudSky:
+      "https://github.com/SgCafe/Weather-app/blob/71993f260a972805b03a114b051d870a39bbbe45/assets/clouds_sky.png",
     clearSky: "../assets/clear_sky.png",
     atmosphereSky: "../assets/atmosphere_sky.png",
     snowSky: "../assets/snow_sky.png",
